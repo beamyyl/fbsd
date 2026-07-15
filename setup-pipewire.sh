@@ -1,6 +1,6 @@
 #!/bin/sh
 set -e
-sudo pkg install -y pipewire wireplumber dbus
+sudo pkg install -y pipewire wireplumber pipewire-spa-oss dbus
 sudo sysrc dbus_enable="YES"
 if ! pgrep -x dbus-daemon >/dev/null; then
     sudo service dbus start
