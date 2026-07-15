@@ -2,7 +2,9 @@
 set -e
 sudo pkg install -y pipewire wireplumber dbus
 sudo sysrc dbus_enable="YES"
-sudo service dbus start || true
+if ! pgrep -x dbus-daemon >/dev/null; then
+    sudo service dbus start
+fi
 
 RUNTIME_CMD='export XDG_RUNTIME_DIR="/tmp/runtime-$(id -u)"; mkdir -p "$XDG_RUNTIME_DIR"; chmod 700 "$XDG_RUNTIME_DIR"'
 
