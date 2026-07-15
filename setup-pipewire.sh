@@ -45,3 +45,7 @@ Terminal=false
 NoDisplay=true
 EOF
 sudo rm /usr/local/etc/xdg/autostart/pulseaudio.desktop
+echo
+echo "Also make sure to set your mixer to volume 1, after setting the new one as default via 'mixer vol=1'"
+echo "(to see them, run cat /dev/sndstat. To change them, run sudo sysctl hw.snd.default_unit=X, where X = the number after pcm)"
+echo
