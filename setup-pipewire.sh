@@ -1,6 +1,6 @@
 #!/bin/sh
 set -e
-sudo pkg install -y pipewire wireplumber pipewire-spa-oss dbus
+sudo pkg install -y pipewire wireplumber pipewire-spa-oss pavucontrol dbus
 sudo sysrc dbus_enable="YES"
 if ! pgrep -x dbus-daemon >/dev/null; then
     sudo service dbus start
@@ -44,3 +44,4 @@ Exec=sh -c "pkill -x pipewire; exec /usr/local/bin/pipewire"
 Terminal=false
 NoDisplay=true
 EOF
+sudo rm /usr/local/etc/xdg/autostart/pulseaudio.desktop
